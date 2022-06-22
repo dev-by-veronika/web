@@ -25,14 +25,7 @@ header {
   color: rgb(242,239,187);
   background: linear-gradient(347deg, rgba(242,239,187,1) 0%, rgba(236,218,102,1) 17%, rgba(242,239,187,1) 34%, rgba(236,218,102,1) 50%, rgba(242,239,187,1) 66%, rgba(236,218,102,1) 83%, rgba(242,239,187,0.9777626811594203) 100%);
   -webkit-background-clip: text;
-  /* font-family: 'Rubik One', sans-serif; */
-  /* font-size: 50px; */
-  /* text-transform: uppercase; */
-  /* background: linear-gradient(45deg, #0B2349 33%, #0D61BC 66%, #8AA9D6); */
   -webkit-text-fill-color: transparent;
-  /* color: #0B2349; */
-  /* display: table; */
-  /* margin: 20px auto; */
 }
 
 .my-link.nav-link :hover {
@@ -507,9 +500,9 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   text-decoration: none;
   text-shadow: 1px 2px 2px rgb(14, 135, 49);
 }
+
 .contacts__link:hover { 
   color: rgb(121, 95, 18);
-
 }
 
 .contacts__item {
@@ -535,4 +528,77 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .contacts__title {
   margin-top: 10px;
+}
+
+.window {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: #f3f3f3;
+  position: absolute;
+  border: 2px solid rgb(46, 46, 46);
+}
+
+.window__close {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-right: 5px;
+  background-color: #1ffacb;
+  opacity: 0.9;
+  font-size: 20px;
+}
+
+.window__close:hover {
+  background-color: #24d5a0;
+}
+
+.window__navigation {
+  height: 35px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #75f595;
+}
+
+.button_add-window {
+  display: block;
+  margin: 0 auto;
+  height: 40px;
+  width: 120px;
+  background-color: rgba(14, 142, 84, 0.756);
+  border-radius: 20px;
+  color: rgb(30, 215, 122);
+  font-weight: 600;
+}
+
+.button_add-window:hover {
+  color: #25e3a4;
+}
+
+.window__content {
+  height: 365px;
+  display: flex;
+  align-self: center;
+  
+}
+
+.window__collapse {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-right: 5px;
+  background-color: #f1f1f1;
+  opacity: 0.9;
+  font-size: 20px;
 }

@@ -15,3 +15,4 @@ if (strpos($login, $space) !== false || strpos($password, $space) !== false) {
     fclose($fd);
     header('Location: login.html');   
 }
+?>

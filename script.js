@@ -28,3 +28,79 @@ function readFile(input) {
 
     };
 }
+
+const createWindow = () => {
+    let isWindowOpen = true;
+    const body = document.querySelector('.body');
+    const div = document.createElement('div');
+    const nav = document.createElement('div');
+    const close = document.createElement('button');
+    const collapse = document.createElement('button');
+    const content = document.createElement('div');
+    content.classList.add("window__content");
+    collapse.classList.add("window__collapse");
+    nav.classList.add("window__navigation");
+    div.classList.add("window");
+    close.classList.add("window__close");
+    collapse.innerText = '-';
+    close.innerText = '×';
+    content.innerText = 'Error';
+    close.onclick = () => {
+        div.remove();
+    }
+    collapse.onclick = () => {
+        if (isWindowOpen) {
+            isWindowOpen = false;
+            content.style.display = 'none';
+        } else {
+            isWindowOpen = true;
+            content.style.display = 'flex';
+        }
+    }
+    nav.appendChild(collapse);
+    nav.appendChild(close)
+    div.appendChild(nav);
+    div.appendChild(content)
+    body.appendChild(div);
+    dragElement(div);
+}
+
+
+function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+      /* if present, the header is where you move the DIV from:*/
+      document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+      /* otherwise, move the DIV from anywhere inside the DIV:*/
+      elmnt.onmousedown = dragMouseDown;
+    }
+  
+    function dragMouseDown(e) {
+      e = e || window.event;
+      // get the mouse cursor position at startup:
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      // call a function whenever the cursor moves:
+      document.onmousemove = elementDrag;
+    }
+  
+    function elementDrag(e) {
+      e = e || window.event;
+      // calculate the new cursor position:
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      // set the element's new position:
+      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+  
+    function closeDragElement() {
+      /* stop moving when mouse button is released:*/
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
